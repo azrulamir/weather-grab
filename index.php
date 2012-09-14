@@ -28,7 +28,7 @@ $conf = $core->get_config();
                 <input type="text" name="woeid">
                 <span class="help-block">The WOEID for your location can be found <a href="http://weather.yahoo.com/" target="_blank">here</a></span>
                 </label>
-                <button type="submit" class="btn">Get Forecast</button>
+                <button type="submit" class="btn btn-primary">Get Forecast</button>
                 </form>
             </div>
             
