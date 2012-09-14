@@ -1,9 +1,8 @@
 <?php
-include_once('system/core.cls.php');
-include_once('system/api.cls.php');
+include_once('system/core.cls.php'); // Include CORE class library
 
-$core = new Core;
-$conf = $core->get_config();
+$core = new Core; // Load CORE class library as Object
+$conf = $core->get_config(); // Assign variable for calling CORE library properties
 ?>
 
 <!DOCTYPE html>

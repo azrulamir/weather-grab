@@ -33,7 +33,6 @@ $forecast = $api->get_weather($woeid, 'forecast');
                 <div class="hero-unit">
                   <h1>Weather Forecast</h1>
                   <p><?php echo $woeidinfo['location']['city'] . ", " . $woeidinfo['location']['country']; ?></p>
-                  <p></p>
                 
                   <table class="table">
                   	<tr>
