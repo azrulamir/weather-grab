@@ -1,5 +1,11 @@
 <?php
 
+/*
+This class is written to serve as a small library for UI management
+purposes. However it was abandond due to such features in not necessary.
+Future implemetations might be reconsidered if required.
+*/
+
 class Ui
 {
 
