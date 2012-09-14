@@ -48,6 +48,7 @@ $forecast = $api->get_weather($woeid, 'forecast');
                     </tr>
                   </table>
                 </div>
+				<button class="btn btn-large btn-primary" type="button" onClick="history.back()">Go Back</button>
             </div>
             
         </div>
