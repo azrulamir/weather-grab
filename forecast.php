@@ -1,14 +1,16 @@
 <?php
-include_once('system/core.cls.php');
-include_once('system/api.cls.php');
+include_once('system/core.cls.php'); // Include CORE class library
+include_once('system/api.cls.php'); // Include Yahoo API class library
 
-$core = new Core;
-$api = new API;
+$core = new Core; // Load CORE class library as Object
+$api = new API; // Load Yahoo API class library as Object
 
-$conf = $core->get_config();
+$conf = $core->get_config(); // Assign variable for calling CORE library properties
 
-$woeid = $_GET['woeid'];
-$woeidinfo = $api->get_weather($woeid, 'channel');
+$woeid = $_GET['woeid']; // Assign WOEID GET value to variable 
+
+// Assign variables to hold Yahoo API library request properties
+$woeidinfo = $api->get_weather($woeid, 'channel'); 
 $forecast = $api->get_weather($woeid, 'forecast');
 ?>
 
