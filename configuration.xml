@@ -1,0 +1,5 @@
+<config>
+	<default_woid>1154781</default_woid>
+	<base_url>http://localhost/weather-grab</base_url>
+	<site_title>Weather Broadcast</site_title>
+</config>
