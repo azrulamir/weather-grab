@@ -1,9 +1,19 @@
 weather-grab
 ============
-
-Get weather feed broadcast via Yahoo Weather public API
+Get weather feed forecast via Yahoo Weather public API
 
 Installation Notes
 ==================
-- Just copy all the files to your localhost setup and run
-- No database configurations required for the time being.
+- Just copy/clone all the files to your server and fire it up
+- No database configurations required.
+
+System Requirements
+===================
+- Apache 2.0 / IIS6+
+- PHP 5+
+- Javascript enabled
+
+Possible implementations
+========================
+- API result caching
+- Geolocation 
