@@ -13,7 +13,7 @@ System Requirements
 - PHP 5+
 - Javascript enabled
 
-Possible implementations
+Possible Implementations
 ========================
 - API result caching
 - Geolocation 
