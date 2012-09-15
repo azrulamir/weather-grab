@@ -16,16 +16,20 @@ class API
 		$channel_yweather = $weather->channel->children("http://xml.weather.yahoo.com/ns/rss/1.0"); // Pinpoint the correct node for data retrieval  
 		
 		// Convert API return result from XML into an array format via looping method 
-		foreach($channel_yweather as $x => $channel_item) 
-		foreach($channel_item->attributes() as $k => $attr) 
+		foreach($channel_yweather as $x => $channel_item)
 		{
-			$yw_channel[$x][$k] = $attr; // Assign a variable for holding forecast channel properties
+			foreach($channel_item->attributes() as $k => $attr) 
+			{
+				$yw_channel[$x][$k] = $attr; // Assign a variable for holding forecast channel properties
+			}
 		}
 		
-		$item_yweather = $weather->channel->item->children("http://xml.weather.yahoo.com/ns/rss/1.0");
+		$item_yweather = $weather->channel->item->children("http://xml.weather.yahoo.com/ns/rss/1.0"); // Pinpoint the correct node for data retrieval  
 
-		foreach($item_yweather as $x => $yw_item) {
-			foreach($yw_item->attributes() as $k => $attr) {
+		foreach($item_yweather as $x => $yw_item)
+		{
+			foreach($yw_item->attributes() as $k => $attr)
+			{
 				if($k == 'day') $day = $attr; // Append result to child array for timeline properties
 				if($x == 'forecast') { $yw_forecast[$x][$day . ''][$k] = $attr;	}  // Append result to child array for forecast properties
 				else { $yw_forecast[$x][$k] = $attr; } // Assign a variable for holding forecast weather condition properties

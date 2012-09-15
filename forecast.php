@@ -10,7 +10,7 @@ $conf = $core->get_config(); // Assign variable for calling CORE library propert
 $woeid = $_GET['woeid']; // Assign WOEID GET value to variable 
 
 // Assign variables to hold Yahoo API library request properties
-$woeidinfo = $api->get_weather($woeid, 'channel'); 
+$channel = $api->get_weather($woeid, 'channel'); 
 $forecast = $api->get_weather($woeid, 'forecast');
 ?>
 
@@ -32,12 +32,15 @@ $forecast = $api->get_weather($woeid, 'forecast');
             <div id="content-container">
                 <div class="hero-unit">
                   <h1>Weather Forecast</h1>
-                  <p><?php echo $woeidinfo['location']['city'] . ", " . $woeidinfo['location']['country']; ?></p>
-                
+				  <p>&nbsp;</p>
                   <table class="table">
+					<tr>
+                    <td>Location</td>
+                    <td><?php echo $channel['location']['city'] . ", " . $channel['location']['country']; ?></td>
+                    </tr> 
                   	<tr>
-                    <td>Condition</td>
-                    <td><?php echo $forecast['condition']['text']; ?></td>
+                    <td>Current Condition</td>
+                    <td><img width="20" src="http://l.yimg.com/a/i/us/we/52/<?php echo $forecast['condition']['code']; ?>.gif"  /> <?php echo $forecast['condition']['text']; ?></td>
                     </tr> 
                     <tr>
                     <td>Temperature</td>
@@ -45,11 +48,12 @@ $forecast = $api->get_weather($woeid, 'forecast');
                     </tr>
                     <tr>
                     <td>Wind Speed</td>
-                    <td><?php echo $woeidinfo['wind']['speed']; ?> MPH</td>
+                    <td><?php echo $channel['wind']['speed']; ?> MPH</td>
                     </tr>
                   </table>
                 </div>
 				<button class="btn btn-large btn-danger" type="button" onClick="history.back()">Go Back</button>
+				<a class="btn btn-large btn-warning" href="http://weather.yahooapis.com/forecastrss?w=<?php echo $woeid; ?>&u=c"> Subscribe RSS</a>
             </div>
             
         </div>
