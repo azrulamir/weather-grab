@@ -19,20 +19,34 @@ $conf = $core->get_config(); // Assign variable for calling CORE library propert
 
     <div id="main-container" class="container">
         <div class="row-fluid">
-         
             <div id="content-container">
-                <form action="forecast.php" method="get">
+                			
+				<form action="forecast.php" method="get">
                 <legend>Simple PHP Yahoo Weather Public API</legend>
-                <label>Yahoo WOEID</label>
+				<div id="error-box" class="alert alert-error hide">
+				What's wrong? You didn't key in anything just now. Try again.
+				</div>
+				<label>Yahoo WOEID</label>
                 <input type="text" name="woeid">
                 <span class="help-block">The WOEID for your location can be found <a href="http://weather.yahoo.com/" target="_blank">here</a></span>
                 </label>
                 <button type="submit" class="btn btn-info">Get Forecast</button>
                 </form>
+				
             </div>
             
         </div>
     </div>
+	
+	<script type="text/javascript">
+	if (window.location.hash) {
+		var hash_value = window.location.hash.replace('#', '');
+		if (hash_value == "error")
+		{
+			$('#error-box').fadeIn('fast');
+		}
+	}
+	</script>
     
 </body>
 </html>

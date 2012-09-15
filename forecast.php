@@ -9,6 +9,11 @@ $conf = $core->get_config(); // Assign variable for calling CORE library propert
 
 $woeid = $_GET['woeid']; // Assign WOEID GET value to variable 
 
+if (!$woeid)
+{
+	header( 'Location: '. $conf->base_url . '/index.php#error' ) ;
+}
+
 // Assign variables to hold Yahoo API library request properties
 $channel = $api->get_weather($woeid, 'channel'); 
 $forecast = $api->get_weather($woeid, 'forecast');
@@ -52,7 +57,7 @@ $forecast = $api->get_weather($woeid, 'forecast');
                     </tr>
                   </table>
                 </div>
-				<button class="btn btn-large btn-danger" type="button" onClick="history.back()">Go Back</button>
+				<button class="btn btn-large btn-danger" type="button" onClick="parent.location = '<?php echo $conf->base_url; ?>'">Go Back</button>
 				<a class="btn btn-large btn-warning" href="http://weather.yahooapis.com/forecastrss?w=<?php echo $woeid; ?>&u=c"> Subscribe RSS</a>
             </div>
             
