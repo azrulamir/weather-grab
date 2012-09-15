@@ -1,4 +1,8 @@
-// Does this browser support geolocation?
+/*
+Javascript functions to collect user position. Script implementation was abandonded 
+due to Yahoo Place Finder require payments in order to be used. Damn!!
+*/
+
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
 }
@@ -34,7 +38,7 @@ function locationSuccess(position) {
 	
 	$.ajax({
 			type: 'POST',
-			url: './weather.php',
+			url: '', 
 			data: "latitude="+lat+"&longtitude="+lon,
 			success: function(html) {
 				alert(html);
