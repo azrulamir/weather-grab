@@ -13,8 +13,8 @@ class Core
 	public function getConfig($type)
 	{
 		$conf = simplexml_load_file('./configuration.xml'); // Load data from XML config file
-		$confValue = $conf->$type;
-		return $this->config = $confValue; // return values for general usage
+		$conf_value = $conf->$type;
+		return $this->config = $conf_value; // return values for general usage
 	}
 	
 }
