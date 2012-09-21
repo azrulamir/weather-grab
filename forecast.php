@@ -3,20 +3,21 @@ include_once('system/core.cls.php'); // Include CORE class library
 include_once('system/api.cls.php'); // Include Yahoo API class library
 
 $core = new Core; // Load CORE class library as Object
-$api = new API; // Load Yahoo API class library as Object
-
 $conf = $core->get_config(); // Assign variable for calling CORE library properties
 
-$woeid = $_GET['woeid']; // Assign WOEID GET value to variable 
+$id = $_GET['woeid']; // Assign WOEID GET value to variable 
 
-if (!$woeid)
+if (!$id)
 {
 	header( 'Location: '. $conf->base_url . '/index.php#error' ) ;
 }
 
-// Assign variables to hold Yahoo API library request properties
-$channel = $api->get_weather($woeid, 'channel'); 
-$forecast = $api->get_weather($woeid, 'forecast');
+$api = new API; // Load API class library as Object
+$api->setWeoid($id); // Set WEOID
+$api->getForecastFeed(); // Retreive Forcast Feed
+
+$channel = $api->getChannelElement(); // Assign feed channel element to variable
+$forecast = $api->getForecastElement(); // Assign feed forecast element to variable
 ?>
 
 <!DOCTYPE html>

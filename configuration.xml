@@ -1,4 +1,4 @@
 <config>
 	<base_url>http://localhost/weather-grab</base_url>
-	<site_title>Weather Broadcast</site_title>
+	<site_title>Simple Weather Forecast</site_title>
 </config>
