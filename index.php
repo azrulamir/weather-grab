@@ -1,14 +1,12 @@
 <?php
 include_once('system/core.cls.php'); // Include CORE class library
-
 $core = new Core; // Load CORE class library as Object
-$conf = $core->get_config(); // Assign variable for calling CORE library properties
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title><?php echo $conf->site_title; ?></title>
+<title><?php echo $core->getConfig('site_title'); ?></title>
 <link href="./css/style.css" type="text/css" rel="stylesheet">
 <link href="./bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 <link href="./bootstrap/css/bootstrap-responsive.min.css" type="text/css" rel="stylesheet">

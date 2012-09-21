@@ -7,17 +7,16 @@ common or basics functions for usage throughout the system.
 
 class Core
 {
-	function get_config()
+
+	private $config;
+
+	public function getConfig($type)
 	{
 		$conf = simplexml_load_file('./configuration.xml'); // Load data from XML config file
-		return $conf; // return values for general usage
+		$confValue = $conf->$type;
+		return $this->config = $confValue; // return values for general usage
 	}
 	
-	function base_url()
-	{
-		$conf = simplexml_load_file('./configuration.xml'); // Load data from XML config file
-		return $conf->base_url; // return specific values
-	}
 }
 
 ?>

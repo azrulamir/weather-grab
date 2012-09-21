@@ -3,13 +3,12 @@ include_once('system/core.cls.php'); // Include CORE class library
 include_once('system/api.cls.php'); // Include Yahoo API class library
 
 $core = new Core; // Load CORE class library as Object
-$conf = $core->get_config(); // Assign variable for calling CORE library properties
 
 $id = $_GET['woeid']; // Assign WOEID GET value to variable 
 
 if (!$id)
 {
-	header( 'Location: '. $conf->base_url . '/index.php#error' ) ;
+	header( 'Location: '. $core->getConfig('base_url') . '/index.php#error' ) ;
 }
 
 $api = new API; // Load API class library as Object
@@ -23,7 +22,7 @@ $forecast = $api->getForecastElement(); // Assign feed forecast element to varia
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title><?php echo $conf->site_title; ?></title>
+<title><?php echo $core->getConfig('site_title'); ?></title>
 <link href="./css/style.css" type="text/css" rel="stylesheet">
 <link href="./bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 <link href="./bootstrap/css/bootstrap-responsive.min.css" type="text/css" rel="stylesheet">
@@ -58,7 +57,7 @@ $forecast = $api->getForecastElement(); // Assign feed forecast element to varia
                     </tr>
                   </table>
                 </div>
-				<button class="btn btn-large btn-danger" type="button" onClick="parent.location = '<?php echo $conf->base_url; ?>'">Go Back</button>
+				<button class="btn btn-large btn-danger" type="button" onClick="parent.location = '<?php echo $core->getConfig('base_url'); ?>'">Go Back</button>
 				<a class="btn btn-large btn-warning" href="http://weather.yahooapis.com/forecastrss?w=<?php echo $woeid; ?>&u=c"> Subscribe RSS</a>
             </div>
             
