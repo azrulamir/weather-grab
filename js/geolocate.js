@@ -41,6 +41,7 @@ function locationSuccess(position) {
 			url: 'geo.php', 
 			data: "latitude="+lat+"&longtitude="+lon,
 			success: function(html) {
+				$('label[for^="woeid"]').html('<label>The <strong>WOEID</strong> for this location</label>');
 				$('input[name^="woeid"]').val(html);
 			}
 	});

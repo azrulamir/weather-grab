@@ -53,6 +53,18 @@ $forecast = $api->getForecastElement(); // Assign feed forecast element to varia
                     <td>Wind Speed</td>
                     <td><?php echo $api->getElementProperties('wind:speed'); ?> MPH</td>
                     </tr>
+					<tr>
+                    <td>Last Recorded</td>
+                    <td><?php echo $api->getElementProperties('condition:date'); ?></td>
+                    </tr> 
+					<tr>
+                    <td>Humidity</td>
+                    <td>
+						<div class="progress progress-striped">
+							<div class="bar" style="width: <?php echo $api->getElementProperties('atmosphere:humidity'); ?>%;"><?php echo $api->getElementProperties('atmosphere:humidity'); ?>%</div>
+						</div>
+					</td>
+                    </tr> 
                   </table>
                 </div>
 				<button class="btn btn-large btn-danger" type="button" onClick="parent.location = '<?php echo $core->getConfig('base_url'); ?>'">Go Back</button>
