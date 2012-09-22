@@ -25,10 +25,9 @@ $core = new Core; // Load CORE class library as Object
 				<div id="error-box" class="alert alert-error hide">
 				What's wrong? You didn't key in anything just now. Try again.
 				</div>
-				<!--<label>The <strong>WOEID</strong> for this location</label>-->
 				<label for='woeid'>Retrieving your location <strong>WOEID</strong>..</label>
                 <input type="text" name="woeid" placeholder="">
-                <span class="help-block"><strong>WOEID</strong> for other locations can be found <a href="http://weather.yahoo.com/" target="_blank">here</a></span>
+                <span class="help-block"><strong>WOEID</strong> for other locations can be found <a href="http://weather.yahoo.com/" target="_blank">here</a>.</span>
                 </label>
                 <button type="submit" class="btn btn-info">Get Forecast</button>
                 </form>
