@@ -15,6 +15,7 @@ $api->getForecastFeed(); // Retreive Forcast Feed
 
 $channel = $api->getChannelElement(); // Assign feed channel element to variable
 $forecast = $api->getForecastElement(); // Assign feed forecast element to variable
+$geo = $api->getWoeidCoordinate();
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +40,7 @@ $forecast = $api->getForecastElement(); // Assign feed forecast element to varia
                   <table class="table">
 					<tr>
                     <td>Location</td>
-                    <td><?php echo $api->getElementProperties('location:city') . $api->getElementProperties('location:state') . ", " . $api->getElementProperties('location:country'); ?></td>
+                    <td><?php echo $api->getElementProperties('location:city') . $api->getElementProperties('location:state') . ", " . $api->getElementProperties('location:country'); ?>&nbsp; <a href="https://maps.google.com/maps?q=<?php echo $geo['lat'] . "," . $geo['long']; ?>" target="_blank"><img src="bootstrap\img\glyphicons_060_compass.png" width="20" /></a></td>
                     </tr> 
                   	<tr>
                     <td>Current Condition</td>
@@ -68,7 +69,7 @@ $forecast = $api->getForecastElement(); // Assign feed forecast element to varia
                   </table>
                 </div>
 				<button class="btn btn-large btn-danger" type="button" onClick="parent.location = '<?php echo $core->getConfig('base_url'); ?>'">Go Back</button>
-				<a class="btn btn-large btn-warning" href="http://weather.yahooapis.com/forecastrss?w=<?php echo $woeid; ?>&u=c"> Subscribe RSS</a>
+				<a class="btn btn-large btn-warning" href="http://weather.yahooapis.com/forecastrss?w=<?php echo $id; ?>&u=c"> Subscribe RSS</a>
             </div>
             
         </div>

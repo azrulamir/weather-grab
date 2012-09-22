@@ -52,6 +52,7 @@ class YahooWeatherAPI
 	private $feedResult;
 	private $feedChannelElement;
 	private $feedForecastElement;
+	private $woeidCoordinate;
 	
 	public function setWeoid($id)
 	{
@@ -99,6 +100,18 @@ class YahooWeatherAPI
 			}
 		}
 		return $this->feedForecastElement = $yw_forecast;
+	}
+	
+	public function getWoeidCoordinate()
+	{
+		$geo_yweather = $this->feedResult->channel->item->children("geo", TRUE);  // Pinpoint the correct node for data retrieval  
+
+		// Convert API return result from XML into an array format via looping method 
+		foreach($geo_yweather as $x => $yw_item)
+		{
+			$yw_geo[$x] = $yw_item;
+		}
+		return $this->woeidCoordinate = $yw_geo;
 	}
 	
 	public function getElementProperties($propType) // $propType format is 'arraykey:item'
