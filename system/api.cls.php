@@ -54,12 +54,46 @@ class API
 		{
 			foreach($yw_item->attributes() as $k => $attr)
 			{
-				if($k == 'day') $day = $attr; // Append result to child array for timeline properties
-				if($x == 'forecast') { $yw_forecast[$x][$day . ''][$k] = $attr;	}  // Append result to child array for forecast properties
-				else { $yw_forecast[$x][$k] = $attr; } // Assign a variable for holding forecast weather condition properties
+				$yw_forecast[$x][$k] = $attr; // Assign a variable for holding forecast item properties
 			}
 		}
 		return $this->feedForecastElement = $yw_forecast;
+	}
+	
+	public function getElementProperties($propType) // $propType format is 'arraykey:item'
+	{
+		$channel = $this->feedChannelElement;
+		$forecast = $this->feedForecastElement;
+		
+		$propTypeSplit = split(":", $propType);
+		
+		foreach($channel as $w_channel => $c_items)
+		{
+			if ($propTypeSplit[0] == $w_channel)
+			{
+				foreach($c_items as $c_value => $c_item_value)
+				{
+					if ($propTypeSplit[1] == $c_value)
+					{
+						return $c_item_value;
+					}
+				}
+			}
+		}
+		
+		foreach($forecast as $w_forecast => $f_items)
+		{
+			if ($propTypeSplit[0] == $w_forecast)
+			{
+				foreach($f_items as $f_value => $f_item_value)
+				{
+					if ($propTypeSplit[1] == $f_value)
+					{
+						return $f_item_value;
+					}
+				}
+			}
+		}
 	}
 	
 }

@@ -39,19 +39,19 @@ $forecast = $api->getForecastElement(); // Assign feed forecast element to varia
                   <table class="table">
 					<tr>
                     <td>Location</td>
-                    <td><?php echo $channel['location']['city'] . ", " . $channel['location']['country']; ?></td>
+                    <td><?php echo $api->getElementProperties('location:city') . ", " . $api->getElementProperties('location:country'); ?></td>
                     </tr> 
                   	<tr>
                     <td>Current Condition</td>
-                    <td><img width="20" src="http://l.yimg.com/a/i/us/we/52/<?php echo $forecast['condition']['code']; ?>.gif"  /> <?php echo $forecast['condition']['text']; ?></td>
+                    <td><img width="20" src="http://l.yimg.com/a/i/us/we/52/<?php echo $api->getElementProperties('condition:code'); ?>.gif"  /> <?php echo $api->getElementProperties('condition:text'); ?></td>
                     </tr> 
                     <tr>
                     <td>Temperature</td>
-                    <td><?php echo $forecast['condition']['temp']; ?> Celcius</td>
+                    <td><?php echo $api->getElementProperties('condition:temp'); ?>&deg; Celcius</td>
                     </tr>
                     <tr>
                     <td>Wind Speed</td>
-                    <td><?php echo $channel['wind']['speed']; ?> MPH</td>
+                    <td><?php echo $api->getElementProperties('wind:speed'); ?> MPH</td>
                     </tr>
                   </table>
                 </div>
