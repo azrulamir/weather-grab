@@ -5,7 +5,47 @@ This class is written to serve as a small library to request and
 retrieve API results from YAHOO Weather Public API
 */
 
-class API
+class YahooGeolocation
+{	
+	
+	private $posCoordinate;
+	private $geoFeed;
+	private $woeid;
+	
+	public function setCoordinate($latPos, $lonPos)
+	{
+		$locCoordinate = array(
+			'lat' => $latPos,
+			'lon' => $lonPos
+		);
+		return $this->posCoordinate = $locCoordinate;
+	}
+	
+	public function getCoordinate($type)
+	{
+		$coor_val = $this->posCoordinate;
+		return $coor_val[$type];
+	}
+	
+	public function getLocationFeed()
+	{
+		$core = new Core;
+		
+		$URI_request = 'http://where.yahooapis.com/geocode?location='.$this->getCoordinate('lat').','.$this->getCoordinate('lon').'&gflags=R&appid='.$core->getConfig('yahoo_AppId');
+		$geo_api = file_get_contents($URI_request);
+		if(!$geo_api) die('weather failed, check feed URL');
+		return $this->geoFeed = simplexml_load_string($geo_api);
+	}
+	
+	public function getLocationWoeid()
+	{
+		$this->getLocationFeed();
+		return $this->woeid = $this->geoFeed->Result->woeid;
+	}
+	
+}
+
+class YahooWeatherAPI
 {	
 
 	private $woeid;
@@ -25,7 +65,8 @@ class API
 	
 	public function getForecastFeed()
 	{
-		$weather_feed = file_get_contents("http://weather.yahooapis.com/forecastrss?w=".$this->getWeoid()."&u=c"); // Assign a variable to hold API request parameters
+		$URI_request = "http://weather.yahooapis.com/forecastrss?w=".$this->getWeoid()."&u=c";
+		$weather_feed = file_get_contents($URI_request); // Assign a variable to hold API request parameters
 		if(!$weather_feed) die('weather failed, check feed URL'); // Check for issue with API feed. Return error shall no result returned.
 		return $this->feedResult = simplexml_load_string($weather_feed); // Load XML feed via simpleXML method.
 	}
@@ -67,32 +108,15 @@ class API
 		
 		$propTypeSplit = split(":", $propType);
 		
-		foreach($channel as $w_channel => $c_items)
+		$lookup_channel_array = $channel[$propTypeSplit[0]][$propTypeSplit[1]];
+		if (!$lookup_channel_array)
 		{
-			if ($propTypeSplit[0] == $w_channel)
-			{
-				foreach($c_items as $c_value => $c_item_value)
-				{
-					if ($propTypeSplit[1] == $c_value)
-					{
-						return $c_item_value;
-					}
-				}
-			}
+			$lookup_forecast_array = $forecast[$propTypeSplit[0]][$propTypeSplit[1]];
+			return $lookup_forecast_array;
 		}
-		
-		foreach($forecast as $w_forecast => $f_items)
+		else
 		{
-			if ($propTypeSplit[0] == $w_forecast)
-			{
-				foreach($f_items as $f_value => $f_item_value)
-				{
-					if ($propTypeSplit[1] == $f_value)
-					{
-						return $f_item_value;
-					}
-				}
-			}
+			return $lookup_channel_array;
 		}
 	}
 	

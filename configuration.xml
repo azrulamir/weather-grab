@@ -1,4 +1,5 @@
 <config>
-	<base_url>http://localhost/weather-grab</base_url>
+	<base_url>http://home.azrul.net/weather-grab</base_url>
 	<site_title>Simple Weather Forecast</site_title>
+	<yahoo_AppId>Ln2sxk76</yahoo_AppId>
 </config>

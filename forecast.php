@@ -9,7 +9,7 @@ if (!$id)
 	header( 'Location: '. $core->getConfig('base_url') . '/index.php#error' ) ;
 }
 
-$api = new API; // Load API class library as Object
+$api = new YahooWeatherAPI; // Load API class library as Object
 $api->setWeoid($id); // Set WEOID
 $api->getForecastFeed(); // Retreive Forcast Feed
 
@@ -39,7 +39,7 @@ $forecast = $api->getForecastElement(); // Assign feed forecast element to varia
                   <table class="table">
 					<tr>
                     <td>Location</td>
-                    <td><?php echo $api->getElementProperties('location:city') . ", " . $api->getElementProperties('location:country'); ?></td>
+                    <td><?php echo $api->getElementProperties('location:city') . $api->getElementProperties('location:state') . ", " . $api->getElementProperties('location:country'); ?></td>
                     </tr> 
                   	<tr>
                     <td>Current Condition</td>

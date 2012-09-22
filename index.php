@@ -12,6 +12,7 @@ $core = new Core; // Load CORE class library as Object
 <link href="./bootstrap/css/bootstrap-responsive.min.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="./js/geolocate.js"></script>
 </head>
 <body>
 
@@ -24,9 +25,9 @@ $core = new Core; // Load CORE class library as Object
 				<div id="error-box" class="alert alert-error hide">
 				What's wrong? You didn't key in anything just now. Try again.
 				</div>
-				<label>Yahoo WOEID</label>
-                <input type="text" name="woeid">
-                <span class="help-block">The WOEID for your location can be found <a href="http://weather.yahoo.com/" target="_blank">here</a></span>
+				<label>The <strong>WOEID</strong> for this location</label>
+                <input type="text" name="woeid" placeholder="">
+                <span class="help-block">WOEID for other locations can be found <a href="http://weather.yahoo.com/" target="_blank">here</a></span>
                 </label>
                 <button type="submit" class="btn btn-info">Get Forecast</button>
                 </form>

@@ -38,10 +38,10 @@ function locationSuccess(position) {
 	
 	$.ajax({
 			type: 'POST',
-			url: '', 
+			url: 'geo.php', 
 			data: "latitude="+lat+"&longtitude="+lon,
 			success: function(html) {
-				alert(html);
+				$('input[name^="woeid"]').val(html);
 			}
 	});
 	
