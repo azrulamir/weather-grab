@@ -40,7 +40,7 @@ $geo = $api->getWoeidCoordinate(); // Assign feed geolocation element to variabl
                     </tr>
 					<tr>
                     <td>Location</td>
-                    <td><?php echo $api->getElementProperties('location:city') . $api->getElementProperties('location:region') . ", " . $api->getElementProperties('location:country'); ?>&nbsp; <a href="https://maps.google.com/maps?q=<?php echo $geo['lat'] . "," . $geo['long']; ?>" target="_blank"><img src="bootstrap/img/glyphicons_060_compass.png" width="20" /></a></td>
+                    <td><?php echo $api->getElementProperties('location:city') . $api->getElementProperties('location:region') . ", " . $api->getElementProperties('location:country'); ?>&nbsp; <a rel="tooltip" title="Show on Google Maps" href="https://maps.google.com/maps?q=<?php echo $geo['lat'] . "," . $geo['long']; ?>" target="_blank"><img src="bootstrap/img/glyphicons_060_compass.png" width="20" /></a></td>
                     </tr> 
                   	<tr>
                     <td>Current Condition</td>
@@ -89,6 +89,6 @@ $geo = $api->getWoeidCoordinate(); // Assign feed geolocation element to variabl
             
         </div>
     </div>
-    
+	
 </body>
 </html>
