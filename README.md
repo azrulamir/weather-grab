@@ -25,8 +25,3 @@ Possible Implementations
 ========================
 - API result caching
 - Geolocation 
-
-Showcase URL
-=============
-This is my home private server. Will not be available 24/7. ;)
-http://home.azrul.net/weather-grab
