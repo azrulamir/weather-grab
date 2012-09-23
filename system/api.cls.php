@@ -2,7 +2,7 @@
 
 /*
 This class is written to serve as a small library to request and
-retrieve API results from YAHOO Weather Public API
+retrieve API results from YAHOO Place Finder API
 */
 
 class YahooGeolocation
@@ -31,7 +31,7 @@ class YahooGeolocation
 	{
 		$core = new Core;
 		
-		$URI_request = 'http://where.yahooapis.com/geocode?location='.$this->getCoordinate('lat').','.$this->getCoordinate('lon').'&gflags=R&appid='.$core->getConfig('yahoo_AppId');
+		$URI_request = 'http://where.yahooapis.com/geocode?location='.$this->getCoordinate('lat').','.$this->getCoordinate('lon').'&gflags=R&appid='.$core->getConfig('yahoo_appId');
 		$geo_api = file_get_contents($URI_request);
 		if(!$geo_api) die('weather failed, check feed URL');
 		return $this->geoFeed = simplexml_load_string($geo_api);
@@ -44,6 +44,11 @@ class YahooGeolocation
 	}
 	
 }
+
+/*
+This class is written to serve as a small library to request and
+retrieve API results from YAHOO Weather Public API
+*/
 
 class YahooWeatherAPI
 {	

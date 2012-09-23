@@ -1,5 +1,6 @@
 <config>
 	<base_url>http://home.azrul.net/weather-grab</base_url>
 	<site_title>Simple Weather Forecast</site_title>
-	<yahoo_AppId>Ln2sxk76</yahoo_AppId>
+	<yahoo_appId>Ln2sxk76</yahoo_appId>
+	<yahoo_imgUrl>http://l.yimg.com/a/i/us/we/52/</yahoo_imgUrl>
 </config>
