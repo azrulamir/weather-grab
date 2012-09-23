@@ -3,6 +3,8 @@ include_once('system/core.cls.php'); // Include CORE class library
 include_once('system/api.cls.php'); // Include Yahoo API class library
 $core = new Core; // Load CORE class library as Object
 
+date_default_timezone_set('Asia/Kuala_Lumpur');
+
 $id = $_GET['woeid']; // Assign WOEID GET value to variable 
 if (!$id) header( 'Location: '. $core->getConfig('base_url') . '/index.php#error' ) ;
 
