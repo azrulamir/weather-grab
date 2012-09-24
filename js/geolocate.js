@@ -1,6 +1,5 @@
 /*
-Javascript functions to collect user position. Script implementation was abandonded 
-due to Yahoo Place Finder require payments in order to be used. Damn!!
+Javascript functions to collect user positioning.
 */
 
 if (navigator.geolocation) {

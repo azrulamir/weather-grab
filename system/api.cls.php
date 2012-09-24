@@ -2,7 +2,7 @@
 
 /*
 This class is written to serve as a small library to request and
-retrieve API results from YAHOO Place Finder API
+retrieve results from YAHOO Place Finder API.
 */
 
 class YahooGeolocation
@@ -119,7 +119,7 @@ class YahooWeatherAPI
 		return $this->woeidCoordinate = $yw_geo;
 	}
 	
-	public function getElementProperties($propType) // $propType format is 'arraykey:item'
+	public function getElementProperties($propType) // $propType format is 'arraykey:arrayvalue'
 	{
 		$channel = $this->feedChannelElement;
 		$forecast = $this->feedForecastElement;
