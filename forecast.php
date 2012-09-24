@@ -26,6 +26,7 @@ $geo = $api->getWoeidCoordinate(); // Assign feed geolocation element to variabl
 <link href="./bootstrap/css/bootstrap-responsive.min.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="./js/google-analytics.js"></script>
 </head>
 <body>
 
